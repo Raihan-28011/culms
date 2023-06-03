@@ -1,0 +1,134 @@
+.assignment-submission-page {
+  --gap: 1rem;
+  --assignment-submission-page-left: 20rem;
+  position: absolute;
+  left: var(--assignment-submission-page-left);
+  padding: 3rem 15rem;
+  min-height: calc(100vh - var(--user-navbar-height));
+  min-width: calc(100vw - 20rem);
+}
+
+.assignment-submission-page-head {
+  justify-content: space-between;
+  align-items: end;
+}
+
+.assignment-submission-page-head > .button1 {
+  border-radius: 0;
+  min-width: 8rem;
+  background-color: var(--color3-100);
+}
+
+.submissions-carousel {
+  height: 100%;
+  width: 100%;
+}
+
+.assignment-submission-page label {
+  color: var(--color-gray0-100);
+}
+
+.submission-carousel-head {
+  --gap: 1rem;
+  min-height: 3rem;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: var(--b-radius1);
+  background-color: rgba(0, 0, 0, 0.02);
+}
+
+.left-navigator,
+.right-navigator {
+  height: 3rem;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  cursor: pointer;
+}
+
+.left-navigator {
+  border-top-left-radius: var(--b-radius1);
+  border-bottom-left-radius: var(--b-radius1);
+}
+
+.right-navigator {
+  border-top-right-radius: var(--b-radius1);
+  border-bottom-right-radius: var(--b-radius1);
+}
+
+.left-navigator:hover,
+.right-navigator:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.left-navigator img,
+.right-navigator img {
+  width: 8px;
+}
+
+.submitter-name {
+  align-items: center;
+  width: 100%;
+  min-height: 3rem;
+  justify-content: center;
+  word-wrap: break-word;
+  padding-inline: 1rem;
+}
+
+.submission-carousel-body {
+  flex-wrap: wrap;
+  min-width: 100%;
+}
+
+.submission-carousel-body a {
+  color: var(--fg-color);
+}
+
+.submitted-files {
+  position: relative;
+  min-height: 4rem;
+  border: 1px solid var(--color-gray1-100);
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 1rem;
+  border-radius: var(--b-radius2);
+  min-width: 50%;
+}
+
+.submitted-files span {
+  word-wrap: break-word;
+}
+
+.submitted-files img {
+  width: 24px;
+}
+
+.evaluate-popup {
+  position: fixed;
+  width: 22rem;
+  height: 12rem;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.2);
+  background-color: var(--bg-color);
+  padding: 2rem;
+  z-index: 10;
+  justify-content: center;
+}
+
+.evaluate-popup input {
+  height: 2.5rem;
+}
+
+.button-group {
+  justify-content: end;
+}
+
+.button-group button {
+  min-width: 5rem;
+  max-width: 5rem;
+  height: 2rem;
+  border-radius: 0;
+  font-size: 0.9rem;
+}

@@ -1,0 +1,84 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  min-width: 100vw;
+  min-height: 100vh;
+  background-color: var(--color-black1-20);
+  z-index: 21;
+}
+
+.course-create-popup .popup {
+  --gap: 1.25rem;
+  position: fixed;
+  inset: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 38rem;
+  width: 50rem;
+  background-color: var(--color-white);
+  background-image: url("/bg_graphics.svg");
+  background-position: 100% 10%;
+  background-size: 15rem;
+  background-repeat: no-repeat;
+  z-index: 22;
+  border-radius: var(--b-radius2);
+  box-shadow: 0 0 0.5rem var(--color-black1-20);
+  padding: 4rem 3rem 0rem;
+}
+
+.course-create-popup .popup .popup-head,
+.course-create-popup .popup .popup-tail,
+.course-create-popup .popup .popup-body {
+  width: 70%;
+  font-size: 0.72rem;
+}
+
+.course-create-popup .popup .popup-body .popup-body-row {
+  --gap: 0.5rem;
+}
+
+.course-create-popup .popup .popup-body .popup-body-row label {
+  color: var(--color-gray0-100);
+}
+
+.course-create-popup .popup .popup-body .popup-body-row:last-child {
+  position: relative;
+}
+
+.course-create-popup .popup .popup-head span {
+  font-size: 1.5rem;
+}
+
+.course-create-popup .popup .popup-body label {
+  font-weight: bold;
+}
+
+.course-create-popup
+  .popup
+  .popup-body
+  .popup-body-row:last-child
+  .copy-button {
+  position: absolute;
+  width: 5rem;
+  height: 2rem;
+  right: 0;
+  bottom: 0;
+  border-top-right-radius: var(--b-radius2);
+  border-bottom-right-radius: var(--b-radius2);
+  background-image: url("/copy_button.svg");
+  background-size: 1rem;
+  background-position: center;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+
+.course-create-popup .popup .popup-tail {
+  justify-content: flex-end;
+}
+
+.course-create-popup .popup .popup-tail button {
+  height: 2rem;
+  width: 5rem;
+  border-radius: var(--b-radius2);
+}

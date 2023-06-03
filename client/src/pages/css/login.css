@@ -1,0 +1,57 @@
+.login-container {
+  min-width: 100vw;
+  min-height: 100vh;
+  background-image: url("/bg_graphics.svg");
+  background-position: 2% 98%;
+  background-size: 250px;
+  background-repeat: no-repeat;
+}
+
+.login {
+  --login-height: 37.5rem;
+  --login-width: 50rem;
+  --login-child-width: calc(var(--login-width) / 2);
+  height: var(--login-height);
+  width: var(--login-width);
+  align-items: center;
+  margin: auto;
+  margin-top: calc(calc(100vh - var(--login-height)) / 2);
+  border: 1px solid var(--color-gray1-100);
+  border-radius: var(--b-radius1);
+  gap: 0;
+}
+
+.login-left {
+  height: inherit;
+  width: var(--login-child-width);
+  color: var(--color-white);
+  background-image: linear-gradient(
+    to top,
+    var(--color6-100) 0%,
+    30%,
+    var(--color3-100) 70%,
+    var(--color3-2-100)
+  );
+  border-top-left-radius: var(--b-radius1);
+  border-bottom-left-radius: var(--b-radius1);
+  align-items: center;
+  justify-content: center;
+}
+
+.login-right {
+  height: inherit;
+  width: var(--login-child-width);
+  align-items: center;
+  padding-inline: 2rem;
+}
+
+.login-right img {
+  height: 40px;
+  margin-top: 5rem;
+  margin-bottom: 1rem;
+}
+
+.login-right .login-right-middle .form {
+  height: inherit;
+  width: calc(var(--login-child-width) - 4rem);
+}

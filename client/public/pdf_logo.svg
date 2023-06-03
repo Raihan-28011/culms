@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 111.65 108">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #2290ff;
+        font-family: Roboto-Bold, Roboto;
+        font-size: 24.98px;
+        font-weight: 700;
+      }
+
+      .cls-2 {
+        fill: none;
+        stroke: #2290ff;
+        stroke-miterlimit: 10;
+        stroke-width: 3px;
+      }
+    </style>
+  </defs>
+  <g id="Layer_1-2" data-name="Layer 1">
+    <polyline class="cls-2" points="30.15 54 30.15 106.5 86.42 106.5 110.15 106.5 110.15 75.71 110.15 21.21 87.9 1.5 30.15 1.5 30.15 21.14"/>
+    <rect class="cls-2" x="1.5" y="21.14" width="74.21" height="32.86"/>
+    <text class="cls-1" transform="translate(15.07 46.45)"><tspan x="0" y="0">PDF</tspan></text>
+  </g>
+</svg>

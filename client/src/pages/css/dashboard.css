@@ -1,0 +1,167 @@
+.dashboard {
+  position: absolute;
+  top: var(--user-navbar-height);
+  /* left: var(--user-sidebar-width); */
+  min-height: calc(100vh - var(--user-navbar-height));
+  /* width: calc(100vw - var(--user-sidebar-width)); */
+  width: 100%;
+  padding: 3rem 15rem;
+  background-image: url("/bg_graphics.svg");
+  background-size: 15rem;
+  background-position: 100% 0%;
+  background-repeat: no-repeat;
+}
+
+.dashboard-head {
+  height: 9.375rem;
+}
+
+.dashboard-head-cards {
+  --gap: 0.5rem;
+  border: 1px solid var(--color-gray1-100);
+  border-radius: var(--b-radius2);
+  height: 4.5rem;
+  width: 18rem;
+  align-items: center;
+  padding-inline: 1rem;
+}
+
+.dashboard-head-cards-left {
+  height: 2.5rem;
+  width: 2.5rem;
+  background-color: var(--color-black1-100);
+  border-radius: var(--b-radius2);
+  align-items: center;
+  justify-content: center;
+}
+
+.dashboard-head-cards-left span {
+  font-size: 1.25rem;
+  color: var(--color-white);
+}
+
+.dashboard-head-cards-right {
+  --gap: 0.1rem;
+}
+
+.dashboard-head-cards-right span:first-child {
+  font-size: 0.8rem;
+  color: var(--color-gray0-100);
+  font-weight: 300;
+}
+
+.dashboard-head-cards-right span:last-child {
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: var(--color-black1-100);
+  font-family: "Roboto";
+}
+
+.dashboard-body-head {
+  font-size: 0.8rem;
+  justify-content: space-between;
+}
+
+.dashboard-body-head-left {
+  --gap: 0;
+}
+
+.dashboard-body-head-left-left,
+.dashboard-body-head-left-right {
+  height: 2rem;
+  width: 5rem;
+  border: 1px solid var(--color-gray1-100);
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.dashboard-body-head-left-left {
+  border-top-left-radius: var(--b-radius2);
+  border-bottom-left-radius: var(--b-radius2);
+}
+
+.dashboard-body-head-left-right {
+  border-top-right-radius: var(--b-radius2);
+  border-bottom-right-radius: var(--b-radius2);
+}
+
+.dashboard-body-head-left .current-selected {
+  background-color: var(--color3-100);
+  color: var(--color-white);
+  border: none;
+}
+
+.dashboard-body-head-right {
+  align-items: center;
+  justify-content: center;
+}
+
+.dashboard-body-head-right input {
+  width: 20rem;
+}
+
+.dashboard-body-head-right .course-add-button {
+  width: 2rem;
+  height: 2rem;
+  border: 1px solid var(--color-gray1-100);
+  border-radius: var(--b-radius2);
+  font-size: 1.5rem;
+  color: var(--color-gray1-100);
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.dashboard-body-head-right .course-add-button:hover,
+.dashboard-body-head-right .course-add-button:active {
+  border-color: var(--color3-100);
+  color: var(--color3-100);
+}
+
+.dashboard-body-body {
+  --gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.selection-action-area {
+  align-items: center;
+  justify-content: space-between;
+}
+
+.selection-action-area button {
+  --gap: 0.5rem;
+  background-color: transparent;
+  font-size: 0.8rem;
+  justify-content: center;
+  align-items: center;
+  height: 2rem;
+  min-width: 5rem;
+  border: 1px solid var(--color-gray1-100);
+  border-radius: var(--b-radius2);
+}
+
+.selection-action-area button img {
+  height: 1.25rem;
+}
+
+.selection-action-area button:hover {
+  border-color: var(--color3-100);
+}
+
+.selection-action-area .right {
+  align-items: center;
+}
+
+.selection-action-area .right span:first-child {
+  font-size: 2rem;
+  font-weight: 300;
+}
+
+.dashboard .empty {
+  min-height: 10rem;
+  min-width: 100%;
+  justify-content: center;
+  align-items: center;
+  color: var(--color-gray1-100);
+}

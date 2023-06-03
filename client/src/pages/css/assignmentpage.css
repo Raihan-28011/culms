@@ -1,0 +1,176 @@
+.assignment-page {
+  --gap: 2rem;
+  --assignment-page-sidebar-width: 20rem;
+  position: absolute;
+  left: var(--assignment-page-sidebar-width);
+  width: calc(100vw - var(--assignment-page-sidebar-width));
+  padding: 3rem 30rem 3rem 10rem;
+  font-family: "Roboto Slab", serif;
+  position: relative;
+}
+
+.assignment-title {
+  --gap: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--color-black1-100);
+}
+
+.assignment-title span:first-child {
+  font-size: 2.5rem;
+}
+
+.assignment-title span:last-child {
+  border: 1px solid var(--color3-100);
+  width: 8rem;
+  height: 2rem;
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.assignment-uploaded-files {
+  --gap: 1rem;
+  flex-wrap: wrap;
+  color: var(--fg-color);
+  min-width: 100%;
+}
+
+.assignment-uploaded-files a,
+.assignment-submitted-file-item a {
+  color: var(--fg-color);
+  min-width: calc(50% - 0.5rem);
+}
+
+.assigned-file-item {
+  position: relative;
+  min-height: 4rem;
+  border: 1px solid var(--color-gray1-100);
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 1rem;
+  border-radius: var(--b-radius2);
+}
+
+.assigned-file-item span {
+  word-wrap: break-word;
+}
+
+.assigned-file-item img {
+  width: 24px;
+}
+
+.assigned-file-item button {
+  background-color: transparent;
+  font-size: 1.5rem;
+  font-weight: 300;
+}
+
+.assignment-submit-box {
+  --gap: 1rem;
+  position: absolute;
+  border: 1px solid var(--color-gray1-100);
+  right: 5rem;
+  width: 20rem;
+  min-height: fit-content;
+  padding-bottom: 1rem;
+  border-radius: var(--b-radius2);
+  align-items: center;
+}
+
+.assignment-submissions-tab {
+  --gap: 0.5rem;
+  position: absolute;
+  right: 5rem;
+  min-height: 5rem;
+  width: 20rem;
+  border-radius: var(--b-radius2);
+}
+
+.assignment-submissions-tab label {
+  color: var(--color-gray0-100);
+  padding-left: 1rem;
+  font-size: 0.9rem;
+}
+
+.assignment-submissions-tab span {
+  height: 2.5rem;
+  padding-left: 1rem;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  color: var(--color3-100);
+}
+
+.assignment-submissions-tab span:hover {
+  color: var(--color-gray0-100);
+  width: 100%;
+}
+
+.assignment-submit-box-head {
+  --gap: 0.5rem;
+  border-bottom: 1px solid var(--color-gray1-100);
+  min-height: 3rem;
+  width: 100%;
+  padding: 1rem;
+}
+
+.assignment-submit-box-head span:first-child {
+  font-size: 1.25rem;
+}
+
+.assignment-submit-box-head span:last-child {
+  color: var(--color-gray0-100);
+}
+
+.assignment-submit-dad-box {
+  --gap: 0.5rem;
+  outline: 2px dashed var(--color-gray1-100);
+  border-radius: var(--b-radius2);
+  width: 90%;
+  margin: auto;
+  height: 10rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.assignment-submit-dad-box span {
+  color: var(--color3-100);
+}
+
+.assignment-submit-dad-box img {
+  width: 3.5rem;
+}
+
+.assignment-submit-submitted-files {
+  width: 90%;
+}
+
+.assignment-submitted-file-item {
+  position: relative;
+  min-height: 4rem;
+  width: calc(50%, 0.5rem);
+  border: 1px solid var(--color-gray1-100);
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 1rem;
+}
+
+.assignment-submitted-file-item img {
+  width: 24px;
+}
+
+.assignment-submitted-file-item span {
+  word-wrap: break-word;
+  word-break: break-all;
+}
+
+.assignment-submitted-file-item button {
+  background-color: transparent;
+  font-size: 1.5rem;
+  font-weight: 300;
+}
+
+.assignment-submit-box > button {
+  width: 90%;
+}

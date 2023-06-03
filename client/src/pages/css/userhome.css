@@ -1,0 +1,163 @@
+.user-home {
+  --user-navbar-height: 4rem;
+  /* --user-sidebar-width: 15rem; */
+  --user-sidebar-width: 15rem;
+  min-height: 100vh;
+  min-width: 100vw;
+  position: relative;
+}
+
+.user-navbar {
+  z-index: 20;
+  align-items: center;
+  justify-content: space-between;
+  min-width: 100vw;
+  height: var(--user-navbar-height);
+  position: fixed;
+  border-bottom: 1px solid var(--color-gray1-100);
+  background-color: var(--bg-color);
+  padding-inline: 2rem;
+}
+
+.user-nav-left img {
+  height: 2rem;
+}
+
+.user-nav-middle input {
+  height: 2rem;
+  width: 50rem;
+  font-size: 0.8rem;
+}
+
+.user-nav-right {
+  align-items: center;
+}
+
+.user-nav-right-left {
+  --gap: 0.25rem;
+  font-size: 0.8rem;
+  align-items: flex-end;
+}
+
+.user-nav-right-left span:last-child {
+  color: var(--color3-100);
+}
+
+.user-nav-right-left span:last-child:hover {
+  text-decoration: underline;
+}
+
+.user-nav-right-right {
+  position: relative;
+}
+
+.user-profile {
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 50%;
+  color: var(--color-white);
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.user-profile span {
+  font-size: 1.25rem;
+}
+
+.user-sidebar {
+  position: fixed;
+  z-index: 20;
+  top: var(--user-navbar-height);
+  background-color: var(--bg-color);
+  padding: 2rem 1rem 1rem 1rem;
+  border-right: 1px solid var(--color-gray1-100);
+  height: calc(100vh - var(--user-navbar-height));
+  width: var(--user-sidebar-width);
+}
+
+.user-sidebar-option {
+  height: 2.5rem;
+  background-color: var(--color-gray2-100);
+  font-size: 0.8rem;
+  align-items: center;
+  padding-left: 0.5rem;
+  border-radius: var(--b-radius2);
+  cursor: pointer;
+}
+
+.user-sidebar .current-selected {
+  background-color: var(--color3-100);
+  color: var(--color-white);
+}
+
+.logout-widget {
+  --gap: 0;
+  position: absolute;
+  background-color: var(--bg-color);
+  min-height: 10rem;
+  width: 20rem;
+  z-index: 30;
+  color: var(--fg-color);
+  top: 100%;
+  right: 0;
+  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.2);
+  padding-block: 0 1rem;
+  border-radius: var(--b-radius2);
+}
+
+.logout-widget-row {
+  --gap: 1rem;
+  padding-inline: 1rem;
+  min-height: 2.5rem;
+  align-items: center;
+  cursor: pointer;
+}
+
+.logout-widget-row:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.logout-widget-row span {
+  font-size: 1rem;
+  color: var(--color-black2-100);
+}
+
+.logout-widget-row img {
+  width: 24px;
+}
+
+.open {
+  display: flex;
+}
+
+.close {
+  display: none;
+}
+
+.user-info {
+  --gap: 1rem;
+  padding: 1rem;
+  height: 5rem;
+  border-bottom: 1px solid var(--color-gray1-100);
+  margin-bottom: 1rem;
+}
+
+.user-info-left {
+  align-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  background-color: var(--color3-100);
+  border-radius: 50%;
+  justify-content: center;
+  color: var(--color-white);
+  font-size: 1.25rem;
+}
+
+.user-info-right {
+  --gap: 0.5rem;
+}
+
+.user-info-right span {
+  font-size: 0.85rem;
+}

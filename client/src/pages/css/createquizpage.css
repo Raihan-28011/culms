@@ -1,0 +1,297 @@
+.create-quiz {
+  --gap: 2rem;
+  font-family: "Roboto Slab", serif;
+  position: absolute;
+  left: var(--course-page-sidebar-width);
+  width: calc(100vw - var(--course-page-sidebar-width));
+  min-height: calc(100vh - var(--user-navbar-height));
+  padding: 2rem 15rem;
+}
+
+.create-quiz-input {
+  --gap: 0;
+  /* border: 1px solid var(--color-gray1-100); */
+  /* min-height: 5rem; */
+  /* padding-block: 1rem; */
+  /* border-radius: var(--b-radius2); */
+}
+
+.create-quiz-input > label,
+.create-quiz-options > label {
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  /* padding-left: 1rem; */
+  /* justify-content: center; */
+  /* background-color: var(--color-gray2-100); */
+  /* border-top-left-radius: var(--b-radius2); */
+  /* border-top-right-radius: var(--b-radius2); */
+}
+
+.create-quiz-input > input {
+  /* border-radius: 0; */
+  /* border-bottom-left-radius: var(--b-radius2); */
+  /* border-bottom-right-radius: var(--b-radius2); */
+  /* border-color: transparent; */
+  /* border-top-color: var(--color-gray1-100); */
+  min-height: 2.5rem;
+}
+
+.create-quiz-input .quill {
+  min-height: 5rem;
+}
+
+.create-quiz-input .quill .ql-container,
+.create-quiz-input .quill .ql-editor {
+  min-height: inherit;
+}
+
+.create-quiz-options {
+  --gap: 0;
+  /* border-bottom: 1px solid var(--color-gray1-100); */
+  /* border-radius: var(--b-radius2); */
+  min-height: fit-content;
+}
+
+.create-quiz-option {
+  --gap: 0;
+  width: 100%;
+  min-height: fit-content;
+  border: 1px solid var(--color-gray1-100);
+  align-items: center;
+  cursor: pointer;
+  margin-bottom: 2rem;
+}
+
+.create-quiz-option label {
+  min-width: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* min-height: auto; */
+  /* border-right: 1px solid var(--color-gray1-100); */
+}
+
+.create-quiz-option .quill {
+  width: inherit;
+  min-height: 5rem;
+  border-radius: 0;
+  border: 0;
+  border-left: 1px solid var(--color-gray1-100);
+}
+
+.create-quiz-option .quill .ql-container {
+  min-height: inherit;
+  border-radius: inherit;
+  border: 0;
+}
+
+.create-quiz-option .quill .ql-editor {
+  min-height: inherit;
+}
+
+.create-quiz-option .quill .ql-toolbar {
+  border-radius: inherit;
+  border: 0;
+  border-bottom: 1px solid var(--color-gray1-100);
+}
+
+.answer-selected {
+  border-color: var(--color3-100);
+  border-width: 2px;
+  position: relative;
+  margin-top: 1rem;
+}
+
+.answer-selected::after {
+  position: absolute;
+  content: "Answer Selected";
+  width: 10rem;
+  height: 2rem;
+  border: 2px solid var(--color3-100);
+  color: var(--color3-100);
+  left: 5rem;
+  top: -1.25rem;
+  background-color: var(--bg-color);
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.explanation {
+  --gap: 1rem;
+}
+
+.create-quiz-question-list {
+  --gap: 0;
+  border: 1px solid var(--color-gray1-100);
+}
+
+.create-quiz-question-list > div:first-child {
+  width: 100%;
+  height: 3rem;
+  padding-inline: 2rem;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.02);
+}
+
+.create-quiz-question-list > div > span {
+  height: 2rem;
+  width: 2rem;
+  border: 1px solid var(--color3-100);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.create-quiz-question-list > div > label {
+  width: 100%;
+  /* height: 2.5rem; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+/* .create-quiz-question-list > div > label:first-child {
+  border-right: 1px solid var(--color-gray1-100);
+} */
+
+.create-quiz-question-list-item {
+  /* --gap: 1rem; */
+  border-top: 1px solid var(--color-gray1-100);
+}
+
+.create-quiz-question-list-item .question-list-item-left {
+  --gap: 1rem;
+  /* width: 50%; */
+  border-bottom: 1px solid var(--color-gray1-100);
+  padding: 1rem;
+  min-height: 5rem;
+  align-items: flex-start;
+}
+
+.create-quiz-question-list-item .question-list-item-left > label {
+  width: 2rem;
+  height: 2rem;
+  border-radius: var(--b-radius2);
+  background-color: var(--color3-100);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-white);
+}
+
+.create-quiz-question-list-item .question-list-item-left > span,
+.create-quiz-question-list-item
+  .question-list-item-right
+  .question-list-item-options
+  > span {
+  min-height: 2rem;
+  display: flex;
+  /* align-items: center; */
+  /* justify-content: center; */
+  /* border: 1px solid red; */
+}
+
+.create-quiz-question-list-item .question-list-item-left > span:last-child {
+  height: 1.85rem;
+  width: 6rem;
+  border: 1px solid var(--color3-100);
+  border-radius: 1rem;
+  color: var(--color3-100);
+  align-items: center;
+  justify-content: center;
+}
+
+/* .create-quiz-question-list-item .question-list-item-right { */
+/* --gap: 1rem; */
+/* width: 50%; */
+/* } */
+
+.create-quiz-question-list-item
+  .question-list-item-right
+  .question-list-item-options {
+  --gap: 1rem;
+  padding: 1rem;
+  border-bottom: 1px solid var(--color-gray1-100);
+}
+
+/* .create-quiz-question-list-item
+  .question-list-item-right
+  .question-list-item-options:last-child {
+  border-bottom: 0;
+} */
+
+.create-quiz-question-list-item .question-list-item-right .answer-selected {
+  border: 2px solid var(--color3-100);
+}
+
+.create-quiz-question-list .empty {
+  height: 5rem;
+  color: var(--color-gray1-100);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top: 1px solid var(--color-gray1-100);
+}
+
+.create-quiz-question-list-item
+  .question-list-item-right
+  .question-list-item-options {
+  min-height: fit-content;
+}
+
+.create-quiz-question-list-item
+  .question-list-item-right
+  .question-list-item-options
+  > label {
+  width: 2rem;
+  height: 2rem;
+  border-radius: var(--b-radius2);
+  border: 1px solid var(--color-black1-100);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.question-list-head {
+  --gap: 1rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.question-list-head button {
+  width: 2rem;
+  height: 2rem;
+  background-color: transparent;
+  color: var(--fg-color);
+  border: 1px solid var(--color3-100);
+}
+
+.create-quiz-create-button {
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.create-quiz-create-button button {
+  background-color: var(--color3-100);
+  width: 6rem;
+  border-radius: 0;
+}
+
+.create-quiz-question-head {
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.create-quiz-question-head > label {
+  display: flex;
+  align-items: flex-end;
+  height: 5rem;
+}

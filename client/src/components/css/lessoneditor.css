@@ -1,0 +1,14 @@
+.lesson-editor {
+  min-width: 100%;
+  min-height: 20rem;
+  cursor: text;
+}
+
+.paragraph {
+  min-height: 2rem;
+}
+
+.lesson-editor .ql-editor {
+  height: 15rem;
+  color: var(--fg-color);
+}

@@ -1,0 +1,57 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  min-width: 100vw;
+  min-height: 100vh;
+  background-color: var(--color-black1-20);
+  z-index: 21;
+}
+
+.course-enroll-popup .popup {
+  --gap: 1.25rem;
+  position: fixed;
+  inset: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 15rem;
+  width: 40rem;
+  background-color: var(--color-white);
+  background-image: url("/bg_graphics.svg");
+  background-position: 100% 15%;
+  background-size: 10rem;
+  background-repeat: no-repeat;
+  z-index: 22;
+  border-radius: var(--b-radius2);
+  box-shadow: 0 0 0.5rem var(--color-black1-20);
+  padding: 4rem 3rem 0rem;
+}
+
+.course-enroll-popup .popup .popup-head,
+.course-enroll-popup .popup .popup-tail,
+.course-enroll-popup .popup .popup-body {
+  width: 100%;
+  font-size: 0.72rem;
+}
+
+.course-enroll-popup .popup .popup-body .popup-body-row {
+  --gap: 0.25rem;
+}
+
+.course-enroll-popup .popup .popup-head span {
+  font-size: 1.5rem;
+}
+
+.course-enroll-popup .popup .popup-body label {
+  font-weight: bold;
+}
+
+.course-enroll-popup .popup .popup-tail {
+  justify-content: flex-end;
+}
+
+.course-enroll-popup .popup .popup-tail button {
+  height: 2rem;
+  width: 5rem;
+  border-radius: var(--b-radius2);
+}

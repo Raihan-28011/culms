@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 105 125">
+  <defs>
+    <style>
+      .cls-1 {
+        font-family: Roboto-Bold, Roboto;
+        font-size: 36px;
+        font-weight: 700;
+      }
+
+      .cls-2 {
+        fill: #fff;
+        stroke: red;
+        stroke-miterlimit: 10;
+        stroke-width: 5px;
+      }
+    </style>
+  </defs>
+  <g id="Layer_1-2" data-name="Layer 1">
+    <path class="cls-2" d="M102.5,40.5V117.5c0,2.76-2.24,5-5,5H7.5c-2.77,0-5-2.24-5-5V7.5c0-2.76,2.23-5,5-5H53.67c2.42,0,4.77,.75,6.75,2.15l37.17,26.33c3.09,2.19,4.92,5.74,4.92,9.52Z"/>
+    <text class="cls-1" transform="translate(21.66 74.62)"><tspan x="0" y="0">PDF</tspan></text>
+  </g>
+</svg>

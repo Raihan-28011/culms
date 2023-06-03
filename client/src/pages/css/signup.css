@@ -1,0 +1,57 @@
+.signup-container {
+  min-width: 100vw;
+  min-height: 100vh;
+  background-image: url("/bg_graphics.svg");
+  background-position: 2% 98%;
+  background-size: 250px;
+  background-repeat: no-repeat;
+}
+
+.signup {
+  --signup-height: 37.5rem;
+  --signup-width: 50rem;
+  --signup-child-width: calc(var(--signup-width) / 2);
+  height: var(--signup-height);
+  width: var(--signup-width);
+  align-items: center;
+  margin: auto;
+  margin-top: calc(calc(100vh - var(--signup-height)) / 2);
+  border: 1px solid var(--color-gray1-100);
+  border-radius: var(--b-radius1);
+  gap: 0;
+}
+
+.signup-left {
+  height: inherit;
+  width: var(--signup-child-width);
+  color: var(--color-white);
+  background-image: linear-gradient(
+    to top,
+    var(--color6-100) 0%,
+    30%,
+    var(--color3-100) 70%,
+    var(--color3-2-100)
+  );
+  border-top-left-radius: var(--b-radius1);
+  border-bottom-left-radius: var(--b-radius1);
+  align-items: center;
+  justify-content: center;
+}
+
+.signup-right {
+  height: inherit;
+  width: var(--signup-child-width);
+  align-items: center;
+  padding-inline: 2rem;
+}
+
+.signup-right img {
+  height: 40px;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.signup-right .signup-right-middle .form {
+  height: inherit;
+  width: calc(var(--signup-child-width) - 4rem);
+}

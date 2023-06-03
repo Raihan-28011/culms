@@ -1,0 +1,65 @@
+.course-card {
+  --gap: 0.2rem;
+  width: 17.625rem;
+  height: 14rem;
+  border: 1px solid var(--color-gray1-100);
+  border-radius: var(--b-radius1);
+  padding: 0.75rem;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.course-card:hover {
+  border-color: var(--color3-100);
+  /* border-color: transparent; */
+  /* box-shadow: 0 0 0.5rem var(--color-gray1-100); */
+}
+
+.course-card-upper .upper {
+  justify-content: space-between;
+}
+
+.course-card-upper .upper input[type="checkbox"] {
+  width: 1rem;
+  border-color: var(--color-gray2-100);
+  outline-color: var(--color-gray2-100);
+  cursor: pointer;
+  background-color: transparent;
+}
+
+input[type="checkbox"]:checked {
+  background-color: var(--color1-100);
+}
+
+.course-card .course-code {
+  width: 8rem;
+  min-height: 3.5rem;
+  border-radius: var(--b-radius1);
+  color: var(--color-white);
+  align-items: center;
+  justify-content: center;
+  font-size: 1.15rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.course-name {
+  font-size: 1.2rem;
+  line-height: 1.5rem;
+  font-weight: normal;
+  margin-bottom: 0.25rem;
+}
+
+.creator-name {
+  font-size: 0.8rem;
+}
+
+.enrollment-code {
+  font-size: 0.9rem;
+  width: 8rem;
+  height: 2rem;
+  border-radius: var(--b-radius2);
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}

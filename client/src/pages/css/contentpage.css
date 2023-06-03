@@ -1,0 +1,111 @@
+.content-page {
+  --gap: 0;
+  --content-page-sidebar-width: 20rem;
+  position: absolute;
+  left: 0;
+  width: 100vw;
+  font-family: "Roboto Slab", serif;
+}
+
+/* .content-sidebar {
+  position: fixed;
+  width: var(--content-page-sidebar-width);
+  height: calc(100vh - 4rem);
+  background-color: var(--color-gray2-100);
+  padding: 1rem;
+} */
+
+.content-main-body {
+  position: absolute;
+  left: var(--content-page-sidebar-width);
+  width: calc(100vw - var(--content-page-sidebar-width));
+  min-height: calc(100vh - var(--user-navbar-height));
+  padding: 2rem 25rem 2rem 15rem;
+}
+
+.content-main-body-heading {
+  font-size: 2.5rem;
+  /* font-weight: 450; */
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid;
+}
+
+.content-main-body-subheading {
+  font-size: 1rem;
+  margin-bottom: 3rem;
+}
+
+.content-main-body-toc {
+  --gap: 1rem;
+  margin-bottom: 1rem;
+  margin-top: 2rem;
+  background-color: var(--color-gray2-100);
+  min-height: 10rem;
+  padding: 1rem;
+  border: 1px solid var(--color-gray1-100);
+  border-radius: var(--b-radius2);
+}
+
+.content-main-body-toc a {
+  color: inherit;
+}
+
+.content-main-body-toc > span {
+  font-size: 1.5rem;
+  font-weight: 450;
+}
+
+.content-main-body-toc .content-toc-list-item {
+  position: relative;
+  padding-left: 2.25rem;
+  font-size: 1rem;
+  font-weight: 300;
+  align-items: center;
+}
+
+/* .content-main-body-toc .content-toc-list-item span:hover {
+  color: var(--color3-100);
+  cursor: pointer;
+} */
+
+.content-toc-list-item::before {
+  content: "";
+  position: absolute;
+  left: 0rem;
+  height: 1.125rem;
+  width: 1.125rem;
+  border-radius: 50%;
+  border: 1px solid var(--color-gray0-100);
+  z-index: 2;
+}
+
+.content-main-body-content {
+  margin-top: 1rem;
+  line-height: 1.75rem;
+}
+
+.content-main-body .content-main-body-content h1 {
+  font-size: 1.75rem;
+  font-weight: 450;
+  margin-bottom: 2rem;
+}
+.content-main-body .content-main-body-content h2 {
+  font-size: 1.5rem;
+  font-weight: 450;
+  margin-bottom: 1rem;
+}
+.content-main-body .content-main-body-content h3 {
+  font-size: 1.25rem;
+  font-weight: 450;
+  margin-bottom: 1rem;
+}
+
+.content-main-body .content-main-body-content p,
+ul,
+ol {
+  font-size: 1rem;
+  word-spacing: 0.2rem;
+  line-height: 2rem;
+  margin-bottom: 2rem;
+}
