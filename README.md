@@ -52,7 +52,7 @@ $ node install
 
 ```bash
 $ cd ../server
-$ node install
+$ npm install
 ```
 
 5. After installation, to run the dev build type below commands,
