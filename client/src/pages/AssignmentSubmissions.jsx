@@ -129,7 +129,18 @@ const AssignmentSubmissions = () => {
           </div>
         </div>
         <div className="submission-carousel-body flex-column">
-          <label>Files</label>
+          <div className="flex-row" style={{ justifyContent: "space-between" }}>
+            <label>Files</label>
+            <div className="flex-row">
+              Obtained Points:{" "}
+              <span>
+                {submissions[curSubmission].obtained_points === -1
+                  ? "?"
+                  : submissions[curSubmission].obtained_points}
+                / {assg.points}
+              </span>
+            </div>
+          </div>
           <div className="submission-files-list flex-row">
             {submittedFiles.map((val, index) => {
               return (
@@ -149,7 +160,9 @@ const AssignmentSubmissions = () => {
         </div>
       </div>
     </div>
-  ) : null;
+  ) : (
+    <div className="empty-submissions-page">No Submissions Yet</div>
+  );
 };
 
 export default AssignmentSubmissions;

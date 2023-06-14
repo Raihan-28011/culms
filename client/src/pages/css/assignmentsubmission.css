@@ -132,3 +132,14 @@
   border-radius: 0;
   font-size: 0.9rem;
 }
+
+.empty-submissions-page {
+  --gap: 1rem;
+  --assignment-submission-page-left: 20rem;
+  position: absolute;
+  left: var(--assignment-submission-page-left);
+  padding: 3rem 15rem;
+  min-height: calc(100vh - var(--user-navbar-height));
+  min-width: calc(100vw - 20rem);
+  color: var(--color-gray0-100);
+}
