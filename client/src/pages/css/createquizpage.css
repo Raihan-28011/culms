@@ -139,12 +139,16 @@
 .create-quiz-question-list > div > span {
   height: 2rem;
   width: 2rem;
-  border: 1px solid var(--color3-100);
+  border: 1px solid var(--color-gray0-100);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
+}
+
+.create-quiz-question-list > div > span:hover {
+  border-color: var(--color3-100);
 }
 
 .create-quiz-question-list > div > label {
@@ -154,6 +158,10 @@
   align-items: center;
   justify-content: center;
   padding: 1rem;
+}
+
+.create-quiz-question-list img {
+  width: 8px;
 }
 
 /* .create-quiz-question-list > div > label:first-child {

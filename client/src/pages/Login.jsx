@@ -29,7 +29,7 @@ function Login() {
         <div className="login-right flex-column">
           <div className="login-right-top flex-column">
             <Link to={"/"}>
-              <img src="/culmsLogo.svg" alt="culms logo" />
+              <img src="/culms_logo.png" alt="culms logo" />
             </Link>
           </div>
           <div className="login-right-middle flex-column">

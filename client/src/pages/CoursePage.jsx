@@ -7,6 +7,7 @@ import ContentList from "../components/ContentList";
 import ContentPage from "./ContentPage";
 import QuizList from "../components/QuizList";
 import AssignmentList from "../components/AssignmentList";
+import ContentCreatePage from "./ContentCreatePage";
 
 const CoursePage = () => {
   const [user, setUser] = useState();
@@ -19,150 +20,7 @@ const CoursePage = () => {
   const [courseLessons, setCourseLessons] = useState([]);
   const [quizList, setQuizList] = useState([]);
   const [assignmentList, setAssignmentList] = useState([]);
-
-  const quizes = [
-    {
-      title: "Introduction and Motivation",
-      quiz_id: 1,
-      questions: [
-        {
-          question: "What is the full form of SQL?",
-          options: [
-            "Standard Query Language",
-            "Structured Query Language",
-            "Standard Question Language",
-            "Standard Querrel Language",
-            "None of the above",
-          ],
-          answer: 2,
-          points: 1,
-          explanation: "The full form of SQL is Structure Query Language",
-        },
-        {
-          question: "What is the full form of SQL?",
-          options: [
-            "Standard Query Language",
-            "Structured Query Language",
-            "Standard Question Language",
-            "Standard Querrel Language",
-            "None of the above",
-          ],
-          answer: 2,
-          points: 1,
-          explanation: "The full form of SQL is Structure Query Language",
-        },
-        {
-          question: "What is the full form of SQL?",
-          options: [
-            "Standard Query Language",
-            "Structured Query Language",
-            "Standard Question Language",
-            "Standard Querrel Language",
-            "None of the above",
-          ],
-          answer: 2,
-          points: 1,
-          explanation: "The full form of SQL is Structure Query Language",
-        },
-      ],
-    },
-    {
-      title: "Introduction and Motivation 2",
-      quiz_id: 2,
-      questions: [
-        {
-          question: "What is the full form of SQL?",
-          options: [
-            "Standard Query Language",
-            "Structured Query Language",
-            "Standard Question Language",
-            "Standard Querrel Language",
-            "None of the above",
-          ],
-          answer: 2,
-          points: 1,
-          explanation: "The full form of SQL is Structure Query Language",
-        },
-        {
-          question: "What is the full form of SQL?",
-          options: [
-            "Standard Query Language",
-            "Structured Query Language",
-            "Standard Question Language",
-            "Standard Querrel Language",
-            "None of the above",
-          ],
-          answer: 2,
-          points: 1,
-          explanation: "The full form of SQL is Structure Query Language",
-        },
-      ],
-    },
-    {
-      title: "Introduction and Motivation 3",
-      quiz_id: 3,
-      questions: [
-        {
-          question: "What is the full form of SQL?",
-          options: [
-            "Standard Query Language",
-            "Structured Query Language",
-            "Standard Question Language",
-            "Standard Querrel Language",
-            "None of the above",
-          ],
-          answer: 2,
-          points: 1,
-          explanation: "The full form of SQL is Structure Query Language",
-        },
-        {
-          question: "What is the full form of SQL?",
-          options: [
-            "Standard Query Language",
-            "Structured Query Language",
-            "Standard Question Language",
-            "Standard Querrel Language",
-            "None of the above",
-          ],
-          answer: 2,
-          points: 1,
-          explanation: "The full form of SQL is Structure Query Language",
-        },
-      ],
-    },
-    {
-      title: "Introduction and Motivation 4",
-      quiz_id: 4,
-      questions: [
-        {
-          question: "What is the full form of SQL?",
-          options: [
-            "Standard Query Language",
-            "Structured Query Language",
-            "Standard Question Language",
-            "Standard Querrel Language",
-            "None of the above",
-          ],
-          answer: 2,
-          points: 1,
-          explanation: "The full form of SQL is Structure Query Language",
-        },
-        {
-          question: "What is the full form of SQL?",
-          options: [
-            "Standard Query Language",
-            "Structured Query Language",
-            "Standard Question Language",
-            "Standard Querrel Language",
-            "None of the above",
-          ],
-          answer: 2,
-          points: 1,
-          explanation: "The full form of SQL is Structure Query Language",
-        },
-      ],
-    },
-  ];
+  const [showCreateContent, setShowCreateContent] = useState(false);
 
   const clickAbout = () => {
     let elem = document.querySelector(".about-selected");
@@ -224,6 +82,15 @@ const CoursePage = () => {
 
   return course ? (
     <div className="course-page flex-row">
+      {showCreateContent ? (
+        <ContentCreatePage
+          close={() => setShowCreateContent(false)}
+          course={course}
+          user={user}
+          content_id={courseLessons.length + 1}
+          refresh={() => getCourseLessons(course.c_id)}
+        />
+      ) : null}
       <div className="course-page-sidebar flex-column">
         <div className="course-page-sidebar-body flex-column">
           <div

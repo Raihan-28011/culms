@@ -34,7 +34,7 @@ function Signup() {
         <div className="signup-right flex-column">
           <div className="signup-right-top flex-column">
             <Link to={"/"}>
-              <img src="/culmsLogo.svg" alt="culms logo" />
+              <img src="/culms_logo.png" alt="culms logo" />
             </Link>
           </div>
           <div className="signup-right-middle flex-column">

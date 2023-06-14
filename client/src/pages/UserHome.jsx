@@ -60,7 +60,7 @@ function UserNavbar(props) {
     <div className="user-navbar flex-row">
       <div className="user-nav-left">
         <Link to={`/users/${uid}`}>
-          <img src="/culmsLogo.svg" alt="culms-logo" />
+          <img src="/culms_logo.png" alt="culms-logo" />
         </Link>
       </div>
       <div className="user-nav-middle">

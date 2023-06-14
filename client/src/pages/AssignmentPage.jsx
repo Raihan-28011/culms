@@ -136,7 +136,7 @@ const AssignmentPage = () => {
         {uploadedFiles.map((value, index) => {
           return (
             <a
-              href={`/upload/${assignmentList[assignmentId].assignment_id}${value}`}
+              href={`/upload/${assignmentList[assignmentId].assignment_id}${course.c_id}${value}`}
               target="__blank"
               key={index}
             >

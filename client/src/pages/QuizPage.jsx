@@ -169,7 +169,7 @@ const QuizPage = () => {
         <div className="quiz-options flex-column">
           {quizList[quizId - 1].questions[currentSelected - 1].options.map(
             (value, index) => {
-              return value.length > 0 ? (
+              return value && value.length > 0 ? (
                 <>
                   <div
                     className={
@@ -264,7 +264,7 @@ const QuizPage = () => {
                 }
               }}
             >
-              &#x21E4;
+              <img src="/left_arrow.svg" alt="" />
             </span>
             <span>
               Question {currentSelected} of{" "}
@@ -293,7 +293,7 @@ const QuizPage = () => {
                 }
               }}
             >
-              &#x21E5;
+              <img src="/right_arrow.svg" alt="" />
             </span>
           </div>
 

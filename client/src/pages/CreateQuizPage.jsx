@@ -185,7 +185,7 @@ const CreateQuizPage = () => {
                 );
               }}
             >
-              &#x21E4;
+              <img src="/left_arrow.svg" alt="" />
             </span>
             <label>Questions</label>
             <span
@@ -199,7 +199,7 @@ const CreateQuizPage = () => {
                 );
               }}
             >
-              &#x21E5;
+              <img src="/right_arrow.svg" alt="" />
             </span>
           </div>
           {questionList.length > 1 ? (

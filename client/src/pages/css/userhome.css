@@ -52,8 +52,8 @@
 }
 
 .user-profile {
-  width: 2.75rem;
-  height: 2.75rem;
+  width: 2.5rem;
+  height: 2.5rem;
   border-radius: 50%;
   color: var(--color-white);
   align-items: center;
