@@ -154,8 +154,12 @@
   cursor: pointer;
 }
 
-.course-page .contents .list-items .list-items-right img {
+.list-items-delete-button img {
   width: 16px;
+}
+
+.list-items-edit-button img {
+  width: 18px;
 }
 
 .course-page .contents .list-items .list-item-title {

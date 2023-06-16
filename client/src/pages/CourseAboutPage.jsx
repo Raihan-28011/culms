@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useOutletContext } from "react-router-dom";
+
 import CheckBox from "../components/CheckBox";
 import ContentCreatePage from "./ContentCreatePage";
 import axios from "../axios";
@@ -45,6 +46,26 @@ const CourseAboutPage = () => {
       )}&content_for=${course.c_id}`
     );
     getCourseLessons(course.c_id);
+  };
+
+  const handleQuizDelete = (e) => {
+    e.stopPropagation();
+    axios.delete(
+      `/courses/quizzes/?quiz_id=${e.currentTarget.getAttribute(
+        "data-quiz-id"
+      )}`
+    );
+    getQuizzes(course.c_id);
+  };
+
+  const handleAssignmentDelete = (e) => {
+    e.stopPropagation();
+    axios.delete(
+      `/courses/assignments/?assignment_id=${e.currentTarget.getAttribute(
+        "data-assignment-id"
+      )}`
+    );
+    getAssignments(course.c_id);
   };
 
   const handleAssignmentClick = (e) => {
@@ -122,15 +143,15 @@ const CourseAboutPage = () => {
                   </div>
                   {user.u_id === course.created_by ? (
                     <div className="list-items-right flex-row">
+                      <div className="list-items-edit-button">
+                        <img src="/edit_logo.svg" alt="Delete button" />
+                      </div>
                       <div
                         className="list-items-delete-button"
                         data-content-id={value.content_id}
                         onClick={handleContentDelete}
                       >
                         <img src="/delete_logo.svg" alt="Delete button" />
-                      </div>
-                      <div className="list-items-edit-button">
-                        <img src="/edit_logo.svg" alt="Delete button" />
                       </div>
                     </div>
                   ) : null}
@@ -174,15 +195,15 @@ const CourseAboutPage = () => {
                   </div>
                   {user.u_id === course.created_by ? (
                     <div className="list-items-right flex-row">
-                      <div
-                        className="list-items-delete-button"
-                        data-content-id={value.quiz_id}
-                        // onClick={handleQuizDelete}
-                      >
-                        <img src="/delete_logo.svg" alt="Delete button" />
-                      </div>
                       <div className="list-items-edit-button">
                         <img src="/edit_logo.svg" alt="Delete button" />
+                      </div>
+                      <div
+                        className="list-items-delete-button"
+                        data-quiz-id={value.quiz_id}
+                        onClick={handleQuizDelete}
+                      >
+                        <img src="/delete_logo.svg" alt="Delete button" />
                       </div>
                     </div>
                   ) : null}
@@ -221,15 +242,15 @@ const CourseAboutPage = () => {
                   </div>
                   {user.u_id === course.created_by ? (
                     <div className="list-items-right flex-row">
-                      <div
-                        className="list-items-delete-button"
-                        data-content-id={value.assignment_id}
-                        // onClick={handleAssignmentDelete}
-                      >
-                        <img src="/delete_logo.svg" alt="Delete button" />
-                      </div>
                       <div className="list-items-edit-button">
                         <img src="/edit_logo.svg" alt="Delete button" />
+                      </div>
+                      <div
+                        className="list-items-delete-button"
+                        data-assignment-id={value.assignment_id}
+                        onClick={handleAssignmentDelete}
+                      >
+                        <img src="/delete_logo.svg" alt="Delete button" />
                       </div>
                     </div>
                   ) : null}

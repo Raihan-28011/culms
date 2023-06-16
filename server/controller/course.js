@@ -535,6 +535,34 @@ const getParticipants = async (req, res) => {
   }
 };
 
+const deleteQuiz = async (req, res) => {
+  let stmt =
+    "delete from quiz\
+  where quiz_id = :quiz_id";
+  let binds = { ...req.query };
+  try {
+    await database.execute(stmt, binds);
+    res.status(200).json("Quiz Successfully Deleted");
+  } catch (err) {
+    console.error("DeleteQuiz: " + err);
+    res.status(200).json("DeleteQuiz: " + err);
+  }
+};
+
+const deleteAssignment = async (req, res) => {
+  let stmt =
+    "delete from assignments\
+  where assignment_id = :assignment_id";
+  let binds = { ...req.query };
+  try {
+    await database.execute(stmt, binds);
+    res.status(200).json("Assignment Successfully Deleted");
+  } catch (err) {
+    console.error("DeleteAssignment: " + err);
+    res.status(200).json("DeleteAssignment: " + err);
+  }
+};
+
 module.exports = {
   createdCourses,
   createCourse,
@@ -559,4 +587,6 @@ module.exports = {
   deleteContent,
   getEvaluations,
   getParticipants,
+  deleteQuiz,
+  deleteAssignment,
 };

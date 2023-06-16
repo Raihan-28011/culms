@@ -78,7 +78,7 @@ create table quiz_questions (
     answer NUMBER,
     explanation VARCHAR(1024),
     points NUMBER,
-    CONSTRAINT quiz_ques_qfor_con FOREIGN KEY (question_for) REFERENCES quiz(quiz_id),
+    CONSTRAINT quiz_ques_qfor_con FOREIGN KEY (question_for) REFERENCES quiz(quiz_id) ON DELETE CASCADE,
     CONSTRAINT quiz_ques_pk_con PRIMARY KEY (question_id, question_for)
 );
 
@@ -89,7 +89,7 @@ create table answers (
     participant_id NUMBER,
     chosen_option NUMBER,
     obtained_points NUMBER,
-    CONSTRAINT pqa_qid_con FOREIGN KEY (question_id, quiz_id) REFERENCES quiz_questions(question_id, question_for),
+    CONSTRAINT pqa_qid_con FOREIGN KEY (question_id, quiz_id) REFERENCES quiz_questions(question_id, question_for) on DELETE CASCADE,
     CONSTRAINT pqa_pk_con PRIMARY KEY (question_id, quiz_id, participant_id)
 );
 
@@ -100,7 +100,7 @@ create table assignments (
     description VARCHAR2(4000),
     attachments VARCHAR2(1024),
     points NUMBER,
-    CONSTRAINT assg_assg_for_con FOREIGN KEY (assignment_for) REFERENCES course(c_id),
+    CONSTRAINT assg_assg_for_con FOREIGN KEY (assignment_for) REFERENCES course(c_id) ON DELETE CASCADE,
     CONSTRAINT assg_pk_con PRIMARY KEY (assignment_id)
 );
 
@@ -109,8 +109,8 @@ create table submits (
     assignment_id VARCHAR2(20),
     submitted_attachments VARCHAR2(1024),
     obtained_points NUMBER,
-    CONSTRAINT sbmts_pid_con FOREIGN KEY (participant_id) REFERENCES users(u_id),
-    CONSTRAINT sbmts_assgid_con FOREIGN KEY (assignment_id) REFERENCES assignments(assignment_id),
+    CONSTRAINT sbmts_pid_con FOREIGN KEY (participant_id) REFERENCES users(u_id) ON DELETE CASCADE,
+    CONSTRAINT sbmts_assgid_con FOREIGN KEY (assignment_id) REFERENCES assignments(assignment_id) ON DELETE CASCADE,
     CONSTRAINT sbmts_pk_con PRIMARY KEY (participant_id, assignment_id)
 );
 
