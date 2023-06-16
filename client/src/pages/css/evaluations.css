@@ -1,0 +1,64 @@
+.evaluations-page {
+  --gap: 2rem;
+  --assignment-page-sidebar-width: 20rem;
+  position: absolute;
+  left: var(--assignment-page-sidebar-width);
+  width: calc(100vw - var(--assignment-page-sidebar-width));
+  padding: 3rem 30rem 3rem 10rem;
+  font-family: "Roboto Slab", serif;
+  position: relative;
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+.evaluation-tables {
+  --gap: 1rem;
+  width: 100%;
+  margin-top: 2rem;
+}
+
+label {
+  color: var(--color-gray0-100);
+}
+
+.table {
+  --gap: 0;
+  width: fit-content;
+  height: fit-content;
+  overflow: auto;
+}
+
+.table-row {
+  min-height: 3rem;
+  border: 1px solid var(--color-gray0-100);
+  border-right: 0;
+  border-top: 0;
+}
+
+.table-row:first-child {
+  border-top: 1px solid var(--color-gray0-100);
+  font-size: 0.85rem;
+}
+
+.table-col {
+  width: 12rem;
+  padding-inline: 1rem;
+  border-right: 1px solid var(--color-gray0-100);
+  word-wrap: break-word;
+  justify-content: center;
+}
+
+.table-legend {
+  --gap: 0.5rem;
+  color: var(--color-black2-100);
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+}
+
+.table-legend > div {
+  padding: 0.15rem 0.85rem;
+  border-radius: var(--b-radius2);
+  background-color: rgba(0, 0, 0, 0.1);
+}

@@ -123,6 +123,20 @@ const CoursePage = () => {
             showCreatePopup={() => null}
           />
         </div>
+        {course.created_by === user.u_id ? (
+          <div
+            className={
+              "course-page-sidebar-cell flex-row" +
+              (location.pathname === String(`${homePath}/evaluations`)
+                ? " sidebar-cell-selected"
+                : "")
+            }
+            onClick={(e) => navigate(`${homePath}/evaluations`)}
+          >
+            <img src="/evaluation_icon.svg" alt="" />
+            <span>Evaluations</span>
+          </div>
+        ) : null}
       </div>
       <Outlet
         context={{

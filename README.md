@@ -45,7 +45,7 @@ $ cd culms
 3. Change your directory to `client` and install node packages
 
 ```bash
-$ node install
+$ npm install
 ```
 
 4. After installation has been finished, change your directory to `server` and install node packages

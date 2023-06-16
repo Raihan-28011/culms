@@ -478,6 +478,63 @@ const deleteContent = async (req, res) => {
   }
 };
 
+const getEvaluations = async (req, res) => {
+  let stmt =
+    'select distinct assignment_id as "assignment_id", \
+          title as "assignment_title", \
+          points as "total_points", \
+          participant_id as "participant_id", \
+          name as "participant_name", \
+          assignment_obtained_points as "assignment_obtained_points" \
+  from assignments natural join (select participant_id, \
+                                        assignment_id, \
+                                        sum(obtained_points) as assignment_obtained_points\
+                                from assignments natural join submits\
+                                group by participant_id, assignment_id) a JOIN users ON users.u_id = a.participant_id\
+      natural join participates\
+  where course_taken = :c_id';
+  let binds = { ...req.query };
+  try {
+    let result = await database.execute(stmt, binds);
+    let rows = [...result.rows];
+    stmt =
+      'select distinct quiz_id as "quiz_id", \
+          title as "quiz_title", \
+          total_points as "total_points", \
+          participant_id as "participant_id", \
+          name as "participant_name", \
+          quiz_obtained_points as "quiz_obtained_points" \
+  from quiz natural join (select participant_id, \
+                                        quiz_id, \
+                                        sum(obtained_points) as quiz_obtained_points\
+                                from quiz natural join answers\
+                                group by participant_id, quiz_id) a JOIN users ON users.u_id = a.participant_id\
+      natural join participates\
+  where course_taken = :c_id';
+    result = await database.execute(stmt, binds);
+    res.status(200).json({ assignments: rows, quiz: result.rows });
+  } catch (err) {
+    console.error("GetEvaluations: " + err);
+    res.status(200).json("GetEvaluations: " + err);
+  }
+};
+
+const getParticipants = async (req, res) => {
+  let stmt =
+    'select name as "participant_name",\
+          u_id as "participant_id"\
+   from participates join users on users.u_id = participates.participant_id\
+   where course_taken = :c_id';
+  let binds = { ...req.query };
+  try {
+    let result = await database.execute(stmt, binds);
+    res.status(200).json(result.rows);
+  } catch (err) {
+    console.error("GetParticipants: " + err);
+    res.status(200).json("GetParticipants: " + err);
+  }
+};
+
 module.exports = {
   createdCourses,
   createCourse,
@@ -500,4 +557,6 @@ module.exports = {
   getSubmission,
   evaluateAssignment,
   deleteContent,
+  getEvaluations,
+  getParticipants,
 };

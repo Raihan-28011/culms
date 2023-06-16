@@ -34,6 +34,8 @@ const {
   getSubmission,
   evaluateAssignment,
   deleteContent,
+  getEvaluations,
+  getParticipants,
 } = require("../controller/course");
 
 const router = express.Router();
@@ -72,5 +74,7 @@ router.get("/assignments", getAssignments);
 router.post("/quizzes/submit", submitQuiz);
 router.get("/quizzes/submission", getQuizSubmission);
 router.delete("/contents", deleteContent);
+router.get("/evaluations", getEvaluations);
+router.get("/participants", getParticipants);
 
 module.exports = router;

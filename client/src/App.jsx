@@ -13,6 +13,7 @@ import CreateQuizPage from "./pages/CreateQuizPage";
 import AssignmentPage from "./pages/AssignmentPage";
 import CreateAssignmentPage from "./pages/CreateAssignmentPage";
 import AssignmentSubmissions from "./pages/AssignmentSubmissions";
+import Evaluations from "./pages/Evaluations";
 
 const router = createBrowserRouter([
   {
@@ -66,6 +67,10 @@ const router = createBrowserRouter([
           {
             path: "assignments/:assignment_id/submissions/",
             element: <AssignmentSubmissions />,
+          },
+          {
+            path: "evaluations",
+            element: <Evaluations />,
           },
         ],
       },
