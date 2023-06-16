@@ -4,6 +4,7 @@ import ReactQuill from "react-quill";
 import "./css/createassignmentpage.css";
 import axios from "../axios";
 import { useNavigate, useOutletContext } from "react-router-dom";
+import NotificationWidget from "../components/NotificationWidget";
 
 const CreateAssignmentPage = () => {
   const { user, course, homePath, getAssignments } = useOutletContext();
@@ -12,6 +13,15 @@ const CreateAssignmentPage = () => {
   const [points, setPoints] = useState();
   const [description, setDescription] = useState("");
   const [attachments, setAttachments] = useState("");
+  const [notify, setNotify] = useState({
+    type: "info",
+    msg: [
+      <span>1. Assignment must include a title. </span>,
+      <span>2. Assignment must have some points.</span>,
+      <span>3. Assignent description must be non-empty. </span>,
+    ],
+    interval: undefined,
+  });
   const navigate = useNavigate();
 
   const handleUpload = (e) => {
@@ -78,12 +88,26 @@ const CreateAssignmentPage = () => {
     navigate(`${homePath}`);
   };
 
+  const handleNotificationClose = () => {
+    setNotify((prev) => {
+      return { ...prev, type: "", msg: "" };
+    });
+  };
+
   useEffect(() => {
     setAttachments(droppedFiles.map((val) => val.name).join("%$%"));
   }, [droppedFiles]);
 
   return user.u_id === course.created_by ? (
     <div className="create-assignment flex-column">
+      {notify.type.length > 0 && notify.msg.length > 0 ? (
+        <NotificationWidget
+          type={notify.type}
+          msg={notify.msg}
+          interval={notify.interval}
+          close={handleNotificationClose}
+        />
+      ) : null}
       <div className="create-assignment-head flex-row">
         <div className="create-assignment-input flex-column">
           <label>Assignment Title</label>

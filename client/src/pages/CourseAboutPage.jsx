@@ -4,6 +4,7 @@ import { useNavigate, useOutletContext } from "react-router-dom";
 import CheckBox from "../components/CheckBox";
 import ContentCreatePage from "./ContentCreatePage";
 import axios from "../axios";
+import NotificationWidget from "../components/NotificationWidget";
 
 const CourseAboutPage = () => {
   const [curTime, setCurTime] = useState(new Date().getMilliseconds());
@@ -20,6 +21,11 @@ const CourseAboutPage = () => {
   } = useOutletContext();
   const [showCreateContent, setShowCreateContent] = useState(false);
   const [checked, setChecked] = useState(false);
+  const [notify, setNotify] = useState({
+    type: "",
+    msg: [],
+    interval: undefined,
+  });
   const navigate = useNavigate();
 
   const handleContentClick = (e) => {
@@ -40,31 +46,79 @@ const CourseAboutPage = () => {
 
   const handleContentDelete = (e) => {
     e.stopPropagation();
-    axios.delete(
-      `/courses/contents/?content_id=${e.currentTarget.getAttribute(
-        "data-content-id"
-      )}&content_for=${course.c_id}`
-    );
+    axios
+      .delete(
+        `/courses/contents/?content_id=${e.currentTarget.getAttribute(
+          "data-content-id"
+        )}&content_for=${course.c_id}`
+      )
+      .then((res) => {
+        if (res.data === "Content successfully deleted") {
+          setNotify({
+            type: "info",
+            msg: [<span>Lesson deleted!</span>],
+            interval: 3000,
+          });
+        } else {
+          setNotify({
+            type: "error",
+            msg: [<span>Could not delete lesson</span>],
+            interval: 3000,
+          });
+        }
+      });
     getCourseLessons(course.c_id);
   };
 
   const handleQuizDelete = (e) => {
     e.stopPropagation();
-    axios.delete(
-      `/courses/quizzes/?quiz_id=${e.currentTarget.getAttribute(
-        "data-quiz-id"
-      )}`
-    );
+    axios
+      .delete(
+        `/courses/quizzes/?quiz_id=${e.currentTarget.getAttribute(
+          "data-quiz-id"
+        )}`
+      )
+      .then((res) => {
+        if (res.data === "Quiz successfully deleted") {
+          setNotify({
+            type: "info",
+            msg: [<span>Quiz deleted!</span>],
+            interval: 3000,
+          });
+        } else {
+          setNotify({
+            type: "error",
+            msg: [<span>Could not delete Quiz</span>],
+            interval: 3000,
+          });
+        }
+      });
     getQuizzes(course.c_id);
   };
 
   const handleAssignmentDelete = (e) => {
     e.stopPropagation();
-    axios.delete(
-      `/courses/assignments/?assignment_id=${e.currentTarget.getAttribute(
-        "data-assignment-id"
-      )}`
-    );
+    axios
+      .delete(
+        `/courses/assignments/?assignment_id=${e.currentTarget.getAttribute(
+          "data-assignment-id"
+        )}`
+      )
+      .then((res) => {
+        if (res.data === "Assignment successfully deleted") {
+          setNotify({
+            type: "info",
+            msg: [<span>Assignment deleted!</span>],
+            interval: 3000,
+          });
+        } else {
+          setNotify({
+            type: "error",
+            msg: [<span>Could not delete assignment</span>],
+            interval: 3000,
+          });
+        }
+      });
     getAssignments(course.c_id);
   };
 
@@ -77,8 +131,22 @@ const CourseAboutPage = () => {
     );
   };
 
+  const handleNotificationClose = () => {
+    setNotify((prev) => {
+      return { ...prev, type: "", msg: "" };
+    });
+  };
+
   return (
     <div className="course-page-right flex-column">
+      {notify.msg.length > 0 && notify.type.length > 0 ? (
+        <NotificationWidget
+          type={notify.type}
+          msg={notify.msg}
+          interval={notify.interval}
+          close={handleNotificationClose}
+        />
+      ) : null}
       <div className="head flex-column">
         <div className="flex-row">
           <span>{course.title}</span>

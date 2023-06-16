@@ -471,7 +471,7 @@ const deleteContent = async (req, res) => {
   let binds = { ...req.query };
   try {
     await database.execute(stmt, binds);
-    res.status(200).json("Deletion successful");
+    res.status(200).json("Content successfully deleted");
   } catch (err) {
     console.error("DeleteContent: " + err);
     res.status(200).json("DeleteContent: " + err);

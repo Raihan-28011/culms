@@ -78,7 +78,7 @@ const CoursePage = () => {
   useEffect(() => {
     initialSetup();
     if (homePath !== location.pathname) clickAbout();
-  }, [location.pathname, quizList, assignmentList, courseLessons]);
+  }, [location.pathname]);
 
   return course ? (
     <div className="course-page flex-row">

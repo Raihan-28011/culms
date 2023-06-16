@@ -1,0 +1,122 @@
+.notification-widget {
+  position: fixed;
+  right: 5rem;
+  bottom: 5rem;
+  background-color: rgba(256, 256, 256, 0.5);
+  backdrop-filter: blur(10px);
+  color: var(--fg-color);
+  width: 25rem;
+  min-height: 8rem;
+  border-radius: var(--b-radius2);
+  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.2);
+  z-index: 50;
+}
+
+.background-overlay {
+  --gap: 0.5rem;
+  width: 100%;
+  min-height: 8rem;
+  color: var(--color-white);
+  border-radius: var(--b-radius2);
+}
+
+.notification-widget-head {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.notification-widget-body {
+  --gap: 0rem;
+  min-height: 100%;
+  font-weight: 300;
+}
+
+.notification-widget-head button {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  background-color: transparent;
+  color: var(--color-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.notification-widget-head button:hover {
+  border: 1px solid var(--color-white);
+}
+
+.notification-widget-head span {
+  font-weight: bold;
+}
+
+/* .error {
+  outline: 1px solid var(--color1-100);
+} */
+
+.error .background-overlay {
+  padding: 1rem;
+  background-color: var(--color5-100);
+  color: var(--color-white);
+}
+
+/* .error .notification-widget-head span {
+  color: var(--color-white);
+} */
+
+/* .error .notification-widget-head button:hover {
+  border-color: var(--color-white);
+} */
+
+/* .warning {
+  outline: 1px solid var(--color5-100);
+} */
+
+.warning .background-overlay {
+  padding: 1rem;
+  background-color: var(--color5-100);
+  color: var(--color-white);
+}
+
+/* .warning .notification-widget-head span {
+  color: var(--color-white);
+} */
+
+/* .warning .notification-widget-head button:hover {
+  border-color: var(--color5-100);
+} */
+
+/* .tips {
+  outline: 1px solid var(--color2-100);
+} */
+
+.tips .background-overlay {
+  padding: 1rem;
+  background-color: var(--color2-100);
+}
+
+/* .tips .notification-widget-head span {
+  color: var(--color2-100);
+} */
+
+/* .tips .notification-widget-head button:hover {
+  border-color: var(--color2-100);
+} */
+
+/* .info {
+  outline: 1px solid var(--color3-100);
+} */
+
+.info .background-overlay {
+  padding: 1rem;
+  background-color: var(--color3-100);
+}
+
+/* .info .notification-widget-head span {
+  color: var(--color3-100);
+} */
+
+/* .info .notification-widget-head button:hover {
+  border-color: var(--color3-100);
+} */
