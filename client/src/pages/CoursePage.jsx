@@ -1,5 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { Outlet, useLocation, useNavigate } from "react-router-dom";
+import {
+  Outlet,
+  useLocation,
+  useNavigate,
+  useOutlet,
+  useOutletContext,
+} from "react-router-dom";
 
 import "./css/coursepage.css";
 import axios from "../axios";
@@ -10,6 +16,7 @@ import AssignmentList from "../components/AssignmentList";
 import ContentCreatePage from "./ContentCreatePage";
 
 const CoursePage = () => {
+  const { notify, setNotify } = useOutletContext();
   const [user, setUser] = useState();
   const [course, setCourse] = useState();
 
@@ -149,6 +156,8 @@ const CoursePage = () => {
           getQuizzes,
           assignmentList,
           getAssignments,
+          notify,
+          setNotify,
         }}
       />
     </div>

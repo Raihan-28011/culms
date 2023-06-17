@@ -14,70 +14,77 @@ import AssignmentPage from "./pages/AssignmentPage";
 import CreateAssignmentPage from "./pages/CreateAssignmentPage";
 import AssignmentSubmissions from "./pages/AssignmentSubmissions";
 import Evaluations from "./pages/Evaluations";
+import MotherPage from "./pages/MotherPage";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Signup />,
-  },
-  {
-    path: "/signup",
-    element: <Signup />,
-  },
-  {
-    path: "/login",
-    element: <Login />,
-  },
-  {
-    path: "/users/:id",
-    element: <UserHome />,
+    element: <MotherPage />,
     children: [
       {
         path: "",
-        element: <Dashboard />,
+        element: <Signup />,
       },
       {
-        path: "courses/:c_id",
-        element: <CoursePage />,
+        path: "/signup",
+        element: <Signup />,
+      },
+      {
+        path: "/login",
+        element: <Login />,
+      },
+      {
+        path: "/users/:id",
+        element: <UserHome />,
         children: [
           {
             path: "",
-            element: <CourseAboutPage />,
+            element: <Dashboard />,
           },
           {
-            path: "contents/:content_id",
-            element: <ContentPage />,
+            path: "courses/:c_id",
+            element: <CoursePage />,
+            children: [
+              {
+                path: "",
+                element: <CourseAboutPage />,
+              },
+              {
+                path: "contents/:content_id",
+                element: <ContentPage />,
+              },
+              {
+                path: "quizzes/:quiz_id",
+                element: <QuizPage />,
+              },
+              {
+                path: "quizzes/create",
+                element: <CreateQuizPage />,
+              },
+              {
+                path: "assignments/:assignment_id",
+                element: <AssignmentPage />,
+              },
+              {
+                path: "assignments/create",
+                element: <CreateAssignmentPage />,
+              },
+              {
+                path: "assignments/:assignment_id/submissions/",
+                element: <AssignmentSubmissions />,
+              },
+              {
+                path: "evaluations",
+                element: <Evaluations />,
+              },
+            ],
           },
-          {
-            path: "quizzes/:quiz_id",
-            element: <QuizPage />,
-          },
-          {
-            path: "quizzes/create",
-            element: <CreateQuizPage />,
-          },
-          {
-            path: "assignments/:assignment_id",
-            element: <AssignmentPage />,
-          },
-          {
-            path: "assignments/create",
-            element: <CreateAssignmentPage />,
-          },
-          {
-            path: "assignments/:assignment_id/submissions/",
-            element: <AssignmentSubmissions />,
-          },
-          {
-            path: "evaluations",
-            element: <Evaluations />,
-          },
+          // {
+          //   path: "courses/:c_id/contents/:content_id",
+          //   element: <ContentPage />,
+          // },
         ],
       },
-      // {
-      //   path: "courses/:c_id/contents/:content_id",
-      //   element: <ContentPage />,
-      // },
     ],
   },
 ]);

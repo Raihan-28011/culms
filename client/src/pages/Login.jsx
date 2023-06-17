@@ -1,10 +1,16 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import {
+  Link,
+  useNavigate,
+  useOutlet,
+  useOutletContext,
+} from "react-router-dom";
 
 import "./css/login.css";
 import axios from "../axios";
 
 function Login() {
+  const { setNotify } = useOutletContext();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -12,7 +18,38 @@ function Login() {
 
   const handleLogin = (e) => {
     axios.post("/auth/login", { email, password }).then((res) => {
+      if (res.data === "Email not registered") {
+        setNotify({
+          type: "error",
+          header: "login",
+          subheader: "Unknown credentials",
+          body: [
+            <span>
+              Email not registered! Do you want to <a href="/signup">signup</a>?{" "}
+            </span>,
+          ],
+          interval: 5000,
+        });
+        return;
+      } else if (res.data === "Wrong password") {
+        setNotify({
+          type: "error",
+          header: "login",
+          subheader: "Wrong credentials",
+          body: [<span>Wrong password. Try again</span>],
+          interval: 5000,
+        });
+        return;
+      }
+
       localStorage.setItem("user", JSON.stringify(res.data));
+      setNotify({
+        type: "tips",
+        header: "login",
+        subheader: "Login Successful",
+        body: [<span>Welcome back!</span>],
+        interval: 10000,
+      });
       navigate(`/users/${res.data.u_id}`);
     });
   };

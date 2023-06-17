@@ -83,6 +83,7 @@
 .content-main-body-content {
   margin-top: 1rem;
   line-height: 1.75rem;
+  text-align: justify;
 }
 
 .content-main-body .content-main-body-content h1 {
@@ -107,5 +108,6 @@ ol {
   font-size: 1rem;
   word-spacing: 0.2rem;
   line-height: 2rem;
-  margin-bottom: 2rem;
+  /* margin-bottom: 2rem; */
+  text-align: justify;
 }

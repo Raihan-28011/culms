@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useOutletContext } from "react-router-dom";
 
-import CheckBox from "../components/CheckBox";
 import ContentCreatePage from "./ContentCreatePage";
 import axios from "../axios";
-import NotificationWidget from "../components/NotificationWidget";
 
 const CourseAboutPage = () => {
   const [curTime, setCurTime] = useState(new Date().getMilliseconds());
@@ -18,14 +16,11 @@ const CourseAboutPage = () => {
     getQuizzes,
     assignmentList,
     getAssignments,
+    notify,
+    setNotify,
   } = useOutletContext();
   const [showCreateContent, setShowCreateContent] = useState(false);
   const [checked, setChecked] = useState(false);
-  const [notify, setNotify] = useState({
-    type: "",
-    msg: [],
-    interval: undefined,
-  });
   const navigate = useNavigate();
 
   const handleContentClick = (e) => {
@@ -55,14 +50,18 @@ const CourseAboutPage = () => {
       .then((res) => {
         if (res.data === "Content successfully deleted") {
           setNotify({
-            type: "info",
-            msg: [<span>Lesson deleted!</span>],
+            type: "tips",
+            header: "Course",
+            subheader: "Successful deletion",
+            body: [<span>Lesson deleted!</span>],
             interval: 3000,
           });
         } else {
           setNotify({
             type: "error",
-            msg: [<span>Could not delete lesson</span>],
+            header: "Course",
+            subheader: "Unsuccessful deletion",
+            body: [<span>Could not delete lesson</span>],
             interval: 3000,
           });
         }
@@ -81,14 +80,18 @@ const CourseAboutPage = () => {
       .then((res) => {
         if (res.data === "Quiz successfully deleted") {
           setNotify({
-            type: "info",
-            msg: [<span>Quiz deleted!</span>],
+            type: "tips",
+            header: "Course",
+            subheader: "Successful deletion",
+            body: [<span>Quiz deleted!</span>],
             interval: 3000,
           });
         } else {
           setNotify({
             type: "error",
-            msg: [<span>Could not delete Quiz</span>],
+            header: "Course",
+            subheader: "Unsuccessful deletion",
+            body: [<span>Could not delete Quiz</span>],
             interval: 3000,
           });
         }
@@ -107,13 +110,17 @@ const CourseAboutPage = () => {
       .then((res) => {
         if (res.data === "Assignment successfully deleted") {
           setNotify({
-            type: "info",
+            type: "tips",
+            header: "Course",
+            subheader: "Successful deletion",
             msg: [<span>Assignment deleted!</span>],
             interval: 3000,
           });
         } else {
           setNotify({
             type: "error",
+            header: "Course",
+            subheader: "Unsuccessful deletion",
             msg: [<span>Could not delete assignment</span>],
             interval: 3000,
           });
@@ -131,22 +138,8 @@ const CourseAboutPage = () => {
     );
   };
 
-  const handleNotificationClose = () => {
-    setNotify((prev) => {
-      return { ...prev, type: "", msg: "" };
-    });
-  };
-
   return (
     <div className="course-page-right flex-column">
-      {notify.msg.length > 0 && notify.type.length > 0 ? (
-        <NotificationWidget
-          type={notify.type}
-          msg={notify.msg}
-          interval={notify.interval}
-          close={handleNotificationClose}
-        />
-      ) : null}
       <div className="head flex-column">
         <div className="flex-row">
           <span>{course.title}</span>

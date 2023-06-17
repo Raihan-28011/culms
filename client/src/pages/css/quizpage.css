@@ -6,6 +6,8 @@
   width: calc(100vw - var(--quiz-page-sidebar-width));
   padding: 3rem 20rem 3rem 15rem;
   font-family: "Roboto Slab", serif;
+  line-height: 1.75rem;
+  word-spacing: 0.2rem;
 }
 
 .quiz-box {

@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useOutletContext } from "react-router-dom";
 
 import "./css/signup.css";
 import axios from "../axios";
 
 function Signup() {
+  const { notify, setNotify } = useOutletContext();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -18,6 +19,20 @@ function Signup() {
         setError(res.data);
         return;
       }
+      setNotify((prev) => {
+        return {
+          ...prev,
+          type: "info",
+          header: "Signup",
+          body: [
+            <span>You are successfully signedup</span>,
+            <span>
+              Now you can <a href="/login">Login</a>
+            </span>,
+          ],
+          interval: undefined,
+        };
+      });
       navigate("/login");
     });
   };

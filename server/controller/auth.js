@@ -49,12 +49,12 @@ const login = async (req, res) => {
   try {
     let result = await database.execute(stmt, binds);
     if (result.rows.length === 0) {
-      res.status(401).json("Email not registered");
+      res.status(200).json("Email not registered");
       return;
     }
 
     if (!bcrypt.compareSync(password, result.rows[0].password)) {
-      res.status(401).json("Wrong password");
+      res.status(200).json("Wrong password");
       return;
     }
 
@@ -66,7 +66,7 @@ const login = async (req, res) => {
     });
   } catch (err) {
     console.log("Auth:login: " + err);
-    res.status(401).json("Could not log in");
+    res.status(200).json("Could not log in");
   }
 };
 

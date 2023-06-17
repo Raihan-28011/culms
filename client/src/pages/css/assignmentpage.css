@@ -7,6 +7,8 @@
   padding: 3rem 30rem 3rem 10rem;
   font-family: "Roboto Slab", serif;
   position: relative;
+  line-height: 1.75rem;
+  word-spacing: 0.2rem;
 }
 
 .assignment-title {

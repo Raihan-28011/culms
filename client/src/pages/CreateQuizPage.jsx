@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate, useOutletContext } from "react-router-dom";
 import ReactQuill from "react-quill";
 
@@ -47,7 +47,8 @@ const formats = [
 ];
 
 const CreateQuizPage = () => {
-  const { user, course, quizList, homePath, getQuizzes } = useOutletContext();
+  const { user, course, quizList, homePath, getQuizzes, notify, setNotify } =
+    useOutletContext();
   const [showAddQuestion, setShowAddQuestion] = useState(false);
   const [questionList, setQuestionList] = useState([
     {
@@ -70,17 +71,6 @@ const CreateQuizPage = () => {
   const [points, setPoints] = useState("");
   const [questionToSee, setQuestionToSee] = useState(0);
   const [totalPoints, setTotalPoints] = useState(0);
-  const [notify, setNotify] = useState({
-    type: "info",
-    msg: [
-      <span>1. Quiz must include one or more questions. </span>,
-      <span>
-        2. Click on the option number to select the option as an answer.{" "}
-      </span>,
-      <span>3. A question has to have a point</span>,
-    ],
-    interval: undefined,
-  });
   const navigate = useNavigate();
 
   const handleAnswerSelected = (e) => {
@@ -100,7 +90,9 @@ const CreateQuizPage = () => {
     if (curQuestion.length === 0) {
       setNotify({
         type: "error",
-        msg: [
+        header: "quiz",
+        subheader: "empty question",
+        body: [
           <span>Can not add empty question!</span>,
           <span>Add a question.</span>,
         ],
@@ -109,20 +101,24 @@ const CreateQuizPage = () => {
       return;
     }
 
-    if (options[0]?.length === 0) {
+    if (!options[0] || options[0]?.length <= 1) {
       setNotify({
         type: "error",
-        msg: [<span>Question must have at least 1 option</span>],
+        header: "Quiz",
+        subheader: "Insufficient options",
+        body: [<span>Question must have at least 2 option</span>],
         interval: 3000,
       });
       return;
     }
 
-    if (points === 0) {
+    if (points.length === 0) {
       setNotify({
         type: "error",
-        msg: [
-          <span>Question must have a point associated with it!</span>,
+        header: "Quiz",
+        subheader: "Invalid point",
+        body: [
+          <span>Question must have some points associated with it!</span>,
           <span>Insert a number into the points input filed</span>,
         ],
         interval: 3000,
@@ -133,7 +129,9 @@ const CreateQuizPage = () => {
     if (answerSelected === 0) {
       setNotify({
         type: "error",
-        msg: [
+        header: "quiz",
+        subheader: "No answer selected",
+        body: [
           <span>Must select an option for answer!</span>,
           <span>Click on the option number to select it as an answer</span>,
         ],
@@ -187,7 +185,9 @@ const CreateQuizPage = () => {
         return {
           ...prev,
           type: "error",
-          msg: [<span>Quiz must have a title!</span>],
+          header: "quiz",
+          subheader: "Untitled quiz",
+          body: [<span>Quiz must have a title!</span>],
           interval: 3000,
         };
       });
@@ -199,7 +199,9 @@ const CreateQuizPage = () => {
         return {
           ...prev,
           type: "error",
-          msg: [<span>Quiz must have atleast 1 question!</span>],
+          header: "quiz",
+          subheader: "Empty quiz",
+          body: [<span>Quiz must have atleast 1 question!</span>],
           interval: 3000,
         };
       });
@@ -218,22 +220,23 @@ const CreateQuizPage = () => {
     navigate(`${homePath}`);
   };
 
-  const handleNotificationClose = () => {
-    setNotify((prev) => {
-      return { ...prev, type: "", msg: "" };
+  useEffect(() => {
+    setNotify({
+      type: "info",
+      header: "quiz",
+      subheader: "quiz tour",
+      body: [
+        <span>1. Quiz must include one or more questions. </span>,
+        <span>
+          2. Click on the option number to select the option as an answer.
+        </span>,
+        <span>3. A question has to have a point</span>,
+      ],
+      interval: undefined,
     });
-  };
-
+  }, []);
   return (
     <div className="create-quiz flex-column">
-      {notify.type.length > 0 && notify.msg.length > 0 ? (
-        <NotificationWidget
-          type={notify.type}
-          msg={notify.msg}
-          interval={notify.interval}
-          close={handleNotificationClose}
-        />
-      ) : null}
       <div className="create-quiz-create-button flex-row">
         <button className="button1" onClick={handleCreateQuiz}>
           Create
